@@ -54,7 +54,10 @@ class WelcomeScreen extends StatelessWidget {
           SizedBox(
             height: 4.h,
           ),
-          Image.asset('assets/logo1.png'),
+          Hero(
+            transitionOnUserGestures: true,
+            tag: 'logoHero',
+            child: Image.asset('assets/logo1.png')),
           SizedBox(
             height: 20.h,
           ),

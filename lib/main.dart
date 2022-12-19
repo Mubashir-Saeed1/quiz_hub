@@ -34,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(Duration(seconds: 3), () async {
-      Get.offAll(() => WelcomeScreen());
+      Get.offAll(() => WelcomeScreen(), duration: Duration(seconds: 2));
     });
   }
 
@@ -47,11 +47,15 @@ class _SplashScreenState extends State<SplashScreen> {
             height: devSize.height,
             color: Colors.black,
             child: Center(
-              child: Image.asset(
-                "assets/logo1.png",
-                width: MediaQuery.of(context).size.width,
-                height: 400,
-                fit: BoxFit.cover,
+              child: Hero(
+                tag: 'logoHero',
+                transitionOnUserGestures: true,
+                child: Image.asset(
+                  "assets/logo1.png",
+                  width: MediaQuery.of(context).size.width,
+                  height: 400,
+                  fit: BoxFit.cover,
+                ),
               ),
             )));
   }
