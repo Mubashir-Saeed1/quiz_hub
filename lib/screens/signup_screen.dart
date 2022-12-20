@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quizhub/screens/login_screen.dart';
@@ -194,9 +194,11 @@ class _SignupScreenState extends State<SignupScreen> {
                     Center(
                       child: GestureDetector(
                         onTap: () {
-                          Get.to(() => SignupScreen(),
-                              duration: Duration(milliseconds: 500),
-                              transition: Transition.rightToLeft);
+                          FirebaseAuth.instance.createUserWithEmailAndPassword(
+                              email: 'email@email.com', password: 'password');
+                          // Get.to(() => SignupScreen(),
+                          //     duration: Duration(milliseconds: 500),
+                          //     transition: Transition.rightToLeft);
                         },
                         child: Container(
                           height: 50,
